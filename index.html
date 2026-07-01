@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>北极星财务规划 · 湾区华人工程师专属</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#FAF8F3;color:#17211C;font-family:'Noto Sans SC',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
+  a{color:inherit;text-decoration:none}
+
+  @keyframes riseIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ── NAV ── */
+  header{
+    position:sticky;top:0;z-index:40;
+    background:rgba(250,248,243,.88);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(23,33,28,.08);
+  }
+  .nav-inner{
+    max-width:1140px;margin:0 auto;
+    padding:16px 28px;
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+  }
+  .nav-logo{display:flex;align-items:center;gap:10px}
+  .nav-star{
+    width:30px;height:30px;border-radius:50%;
+    background:#1B3A5B;color:#FAF8F3;
+    display:flex;align-items:center;justify-content:center;
+    font-size:15px;flex-shrink:0;
+  }
+  .nav-name{font-family:'Noto Serif SC',serif;font-weight:600;font-size:16.5px;letter-spacing:.02em}
+  nav{display:flex;align-items:center;gap:30px}
+  nav a{font-size:14.5px;color:rgba(23,33,28,.66);transition:color .2s}
+  nav a:hover{color:#1B3A5B}
+  .nav-cta{
+    display:inline-flex;align-items:center;
+    padding:9px 18px;border-radius:999px;
+    background:#1B3A5B;color:#FAF8F3 !important;
+    font-size:14px;font-weight:500;
+    transition:background .2s;
+  }
+  .nav-cta:hover{background:#142B45}
+
+  /* ── HERO ── */
+  .hero{max-width:1140px;margin:0 auto;padding:88px 28px 44px}
+  .hero-body{max-width:760px;animation:riseIn .7s ease both}
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:6px 14px;border-radius:999px;
+    background:#E5EAF1;color:#1B3A5B;
+    font-size:13px;font-weight:500;margin-bottom:26px;
+  }
+  .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:#1B3A5B;flex-shrink:0}
+  h1{
+    font-family:'Newsreader','Noto Serif SC',Georgia,serif;
+    font-weight:600;
+    font-size:clamp(46px,6.4vw,78px);
+    line-height:1.04;letter-spacing:-.01em;
+    margin-bottom:24px;
+  }
+  .hero-sub{
+    font-size:clamp(17px,2.1vw,20px);
+    line-height:1.62;
+    color:rgba(23,33,28,.68);
+    margin-bottom:36px;max-width:600px;
+  }
+  .hero-sub b{color:#17211C;font-weight:600}
+  .btn-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+  .btn-primary{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:15px 28px;border-radius:999px;
+    background:#1B3A5B;color:#FAF8F3;
+    font-size:15.5px;font-weight:500;
+    transition:background .2s,transform .15s;
+  }
+  .btn-primary:hover{background:#142B45;transform:translateY(-1px)}
+  .btn-secondary{
+    display:inline-flex;align-items:center;
+    padding:15px 26px;border-radius:999px;
+    background:#fff;border:1px solid rgba(23,33,28,.16);
+    color:#17211C;font-size:15.5px;font-weight:500;
+    transition:border-color .2s,color .2s;
+  }
+  .btn-secondary:hover{border-color:#1B3A5B;color:#1B3A5B}
+
+  .stats{
+    margin-top:64px;padding-top:34px;
+    border-top:1px solid rgba(23,33,28,.1);
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:28px;max-width:820px;
+  }
+  .stat-num{
+    font-family:'Newsreader',serif;
+    font-size:36px;font-weight:500;
+    color:#1B3A5B;line-height:1;
+  }
+  .stat-num sup{font-size:22px}
+  .stat-label{font-size:13.5px;color:rgba(23,33,28,.6);margin-top:7px}
+
+  /* ── PAIN ── */
+  .pain-section{
+    background:#F1EDE4;
+    border-top:1px solid rgba(23,33,28,.06);
+    border-bottom:1px solid rgba(23,33,28,.06);
+  }
+  .pain-inner{max-width:1140px;margin:0 auto;padding:84px 28px}
+  .section-label{
+    font-size:13px;font-weight:600;
+    letter-spacing:.14em;text-transform:uppercase;
+    color:#B4894A;margin-bottom:16px;
+  }
+  h2{
+    font-family:'Newsreader','Noto Serif SC',serif;
+    font-weight:600;font-size:clamp(32px,4vw,46px);
+    line-height:1.1;
+  }
+  .pain-header{max-width:640px;margin-bottom:52px}
+  .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .pain-card{
+    background:#fff;
+    border:1px solid rgba(23,33,28,.09);
+    border-radius:16px;padding:32px 28px;
+  }
+  .pain-num{
+    font-family:'Newsreader',serif;
+    font-size:15px;color:#B4894A;font-weight:600;
+    margin-bottom:22px;
+  }
+  .pain-card h3{
+    font-family:'Noto Serif SC',serif;
+    font-weight:600;font-size:22px;line-height:1.3;margin-bottom:14px;
+  }
+  .pain-card p{font-size:15px;line-height:1.68;color:rgba(23,33,28,.66)}
+
+  /* ── ABOUT ── */
+  .about-section{background:#1B3A5B;padding:88px 28px}
+  .about-inner{max-width:1140px;margin:0 auto}
+  .about-grid{
+    display:grid;grid-template-columns:.82fr 1.18fr;
+    gap:56px;align-items:center;
+  }
+  .about-photo{
+    aspect-ratio:4/5;border-radius:18px;overflow:hidden;
+    background:repeating-linear-gradient(135deg,rgba(255,255,255,.1) 0 14px,rgba(255,255,255,.05) 14px 28px);
+    border:1px solid rgba(255,255,255,.15);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .about-photo span{
+    font-family:ui-monospace,Menlo,monospace;
+    font-size:12.5px;color:rgba(255,255,255,.4);
+    text-align:center;line-height:1.7;
+  }
+  .about-body .section-label{color:#B4894A}
+  .about-body h2{font-size:clamp(30px,3.6vw,42px);line-height:1.15;margin-bottom:22px;color:#F3F1EA}
+  .about-body p{font-size:16px;line-height:1.72;color:rgba(243,241,234,.72);margin-bottom:18px;max-width:560px}
+  .about-body p b{color:#F3F1EA;font-weight:600}
+  .badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+  .badge{
+    padding:8px 15px;border-radius:999px;
+    background:rgba(243,241,234,.12);color:#F3F1EA;
+    border:1px solid rgba(243,241,234,.2);
+    font-size:13.5px;font-weight:500;
+  }
+
+  /* ── PRICING ── */
+  .pricing-section{
+    background:#F1EDE4;
+    border-top:1px solid rgba(23,33,28,.06);
+  }
+  .pricing-inner{max-width:1140px;margin:0 auto;padding:84px 28px}
+  .pricing-header{text-align:center;max-width:600px;margin:0 auto 52px}
+  .pricing-header h2{margin-bottom:14px}
+  .pricing-header p{font-size:16px;line-height:1.6;color:rgba(23,33,28,.6)}
+  .pricing-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:24px;max-width:900px;margin:0 auto;
+  }
+
+  .tier{
+    background:#fff;
+    border:1px solid rgba(23,33,28,.1);
+    border-radius:20px;padding:38px 34px;
+    display:flex;flex-direction:column;
+  }
+  .tier h3{
+    font-family:'Noto Serif SC',serif;font-weight:600;
+    font-size:23px;margin-bottom:8px;
+  }
+  .tier-desc{font-size:14.5px;color:rgba(23,33,28,.6);margin-bottom:24px;line-height:1.55}
+  .tier-price{
+    display:flex;align-items:baseline;gap:6px;
+    margin-bottom:28px;
+  }
+  .tier-price-num{
+    font-family:'Newsreader',serif;
+    font-size:44px;font-weight:500;
+  }
+  .tier-price-unit{font-size:15px;color:rgba(23,33,28,.55)}
+  .tier-features{display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
+  .tier-features li{
+    display:flex;gap:11px;
+    font-size:14.5px;line-height:1.5;
+    color:rgba(23,33,28,.78);list-style:none;
+  }
+  .check{color:#1B3A5B;font-weight:700;flex-shrink:0}
+  .tier-btn{
+    margin-top:auto;display:block;text-align:center;
+    padding:14px;border-radius:999px;
+    background:#fff;border:1px solid rgba(23,33,28,.18);
+    color:#17211C;font-size:15px;font-weight:500;
+    transition:border-color .2s,color .2s;
+  }
+  .tier-btn:hover{border-color:#1B3A5B;color:#1B3A5B}
+
+  .tier.featured{
+    background:#1B3A5B;color:#F3F1EA;
+    box-shadow:0 24px 48px -24px rgba(27,58,91,.55);
+    position:relative;
+  }
+  .tier.featured h3{color:#fff}
+  .tier.featured .tier-desc{color:rgba(243,241,234,.72)}
+  .tier.featured .tier-price-num{color:#fff}
+  .tier.featured .tier-price-unit{color:rgba(243,241,234,.6)}
+  .tier.featured .tier-features li{color:rgba(243,241,234,.9)}
+  .tier.featured .check{color:#B4894A}
+  .tier.featured .tier-btn{
+    background:#F3F1EA;color:#1B3A5B;border:none;font-weight:600;
+  }
+  .tier.featured .tier-btn:hover{background:#fff}
+  .popular-tag{
+    position:absolute;top:22px;right:24px;
+    padding:5px 12px;border-radius:999px;
+    background:#B4894A;color:#fff;
+    font-size:12px;font-weight:600;
+  }
+
+  /* ── BOOK ── */
+  .book-section{max-width:1140px;margin:0 auto;padding:90px 28px}
+  .book-box{
+    background:#17211C;border-radius:26px;
+    padding:clamp(40px,5vw,68px);
+    display:grid;grid-template-columns:1.25fr .75fr;
+    gap:48px;align-items:center;
+  }
+  .book-box h2{
+    font-family:'Newsreader','Noto Serif SC',serif;
+    font-weight:600;font-size:clamp(30px,3.8vw,44px);
+    line-height:1.12;margin-bottom:18px;color:#F3F1EA;
+  }
+  .book-box p{
+    font-size:16px;line-height:1.68;
+    color:rgba(243,241,234,.66);margin-bottom:32px;max-width:440px;
+  }
+  .book-btns{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn-book-primary{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:15px 28px;border-radius:999px;
+    background:#F3F1EA;color:#17211C;
+    font-size:15.5px;font-weight:600;
+    transition:background .2s;
+  }
+  .btn-book-primary:hover{background:#fff}
+  .btn-book-outline{
+    display:inline-flex;align-items:center;
+    padding:15px 24px;border-radius:999px;
+    border:1px solid rgba(243,241,234,.28);
+    color:#F3F1EA;font-size:15px;font-weight:500;
+    transition:border-color .2s;
+  }
+  .btn-book-outline:hover{border-color:#F3F1EA}
+
+  .wechat-box{
+    background:rgba(243,241,234,.06);
+    border:1px solid rgba(243,241,234,.14);
+    border-radius:18px;padding:26px;text-align:center;
+  }
+  .wechat-qr{
+    width:150px;height:150px;margin:0 auto 16px;border-radius:12px;
+    background:repeating-linear-gradient(45deg,rgba(243,241,234,.14) 0 8px,rgba(243,241,234,.05) 8px 16px);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .wechat-qr span{
+    font-family:ui-monospace,Menlo,monospace;
+    font-size:11px;color:rgba(243,241,234,.5);line-height:1.6;
+  }
+  .wechat-label{font-size:14.5px;color:#F3F1EA;font-weight:500}
+  .wechat-sub{font-size:13px;color:rgba(243,241,234,.5);margin-top:4px}
+
+  /* ── FOOTER ── */
+  footer{border-top:1px solid rgba(23,33,28,.1)}
+  .footer-inner{
+    max-width:1140px;margin:0 auto;
+    padding:36px 28px;
+    display:flex;flex-wrap:wrap;gap:20px;
+    justify-content:space-between;align-items:center;
+  }
+  .footer-logo{
+    font-family:'Noto Serif SC',serif;font-weight:600;font-size:15px;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .footer-logo span{color:#1B3A5B}
+  .footer-copy{
+    font-size:12.5px;line-height:1.6;
+    color:rgba(23,33,28,.45);max-width:620px;text-align:right;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:860px){
+    nav{display:none}
+    .pain-grid{grid-template-columns:1fr}
+    .about-grid{grid-template-columns:1fr;gap:2rem}
+    .about-photo{max-width:240px}
+    .pricing-grid{grid-template-columns:1fr}
+    .book-box{grid-template-columns:1fr}
+    .footer-copy{text-align:left}
+    .stats{grid-template-columns:repeat(3,1fr)}
+  }
+  @media(max-width:560px){
+    .hero{padding:60px 20px 32px}
+    .pain-inner,.about-section,.pricing-inner,.book-section{padding-left:20px;padding-right:20px}
+    .stats{grid-template-columns:1fr 1fr;max-width:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">
+      <span class="nav-star">✦</span>
+      <span class="nav-name">北极星财务规划</span>
+    </a>
+    <nav>
+      <a href="#pain">痛点</a>
+      <a href="#about">关于我</a>
+      <a href="#pricing">服务与定价</a>
+      <a href="#book" class="nav-cta">预约咨询</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="top" class="hero">
+  <div class="hero-body">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      专为湾区华人工程师 · 独立收费 · 不卖保险
+    </div>
+    <h1>把股权，<br>变成底气。</h1>
+    <p class="hero-sub">
+      我帮 30–45 岁的湾区工程师，把 <b>401K · Backdoor Roth · 整体税务 · 退休现金流</b> 一次理顺——让每一分额度、每一笔税，都不再稀里糊涂地漏掉。
+    </p>
+    <div class="btn-row">
+      <a href="#book" class="btn-primary">
+        预约免费 15 分钟通话 <span style="font-family:'Newsreader',serif">→</span>
+      </a>
+      <a href="#pricing" class="btn-secondary">查看服务与定价</a>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div>
+      <div class="stat-num">120<sup>+</sup></div>
+      <div class="stat-label">服务过的湾区工程师家庭</div>
+    </div>
+    <div>
+      <div class="stat-num">10<sup> 年</sup></div>
+      <div class="stat-label">跨境税务与投资规划经验</div>
+    </div>
+    <div>
+      <div class="stat-num">Fee-only</div>
+      <div class="stat-label">独立收费 · 不靠佣金赚钱</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<div class="pain-section">
+  <div class="pain-inner" id="pain">
+    <div class="pain-header">
+      <div class="section-label">你是不是也这样</div>
+      <h2>钱是赚到了，<br>但总觉得哪里在悄悄漏。</h2>
+    </div>
+
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-num">01</div>
+        <h3>401K / Roth，<br>额度没吃满</h3>
+        <p>Employer match 没拿满、Mega Backdoor Roth 没开、Backdoor Roth 年年忘做。这些免税、延税的空间一过就作废。我帮你一次性把退休账户排满，把每一分额度都换成长期复利。</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">02</div>
+        <h3>税，交得<br>比该交的多</h3>
+        <p>RSU 补税、ISO 的 AMT、资本利得、州税……各自为战就会多缴。我把你全年的收入、行权和卖出排成一盘棋，找回那些被白白浪费掉的节税空间。</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">03</div>
+        <h3>退休后，<br>钱怎么取才对</h3>
+        <p>什么时候动 401K、哪几年转 Roth、按什么顺序提取最省税——不只是攒够，而是帮你安排好，让这笔钱在退休后稳定、持久、少交税地流出来。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="about-inner">
+  <div class="about-grid">
+    <div class="about-photo">
+      <span>［ 你的照片 ］<br>portrait / 4:5</span>
+    </div>
+    <div class="about-body">
+      <div class="section-label">关于我</div>
+      <h2>我也曾是写代码的人，<br>所以我懂你的账本。</h2>
+      <p>
+        <b>［你的名字］</b>，CFP® 持证理财规划师。曾在硅谷科技公司做过工程师，亲历过 RSU 大涨大跌、ISO 行权踩坑、报税季手忙脚乱——所以我做规划时，说的是你熟悉的语言。
+      </p>
+      <p>
+        我只做 <b>Fee-only 独立收费</b>：不卖保险、不拿佣金、不推产品。你付的是我的时间和判断，我唯一的立场就是你的利益。
+      </p>
+      <div class="badge-row">
+        <span class="badge">CFP® 持证</span>
+        <span class="badge">前科技公司工程师</span>
+        <span class="badge">Fee-only 独立收费</span>
+        <span class="badge">中英文服务</span>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<div class="pricing-section">
+  <div class="pricing-inner" id="pricing">
+    <div class="pricing-header">
+      <div class="section-label">服务与定价</div>
+      <h2>两种方式，看你现在需要什么</h2>
+      <p>先解决一个具体问题，还是要一整年的陪伴——都可以。</p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Tier 1 -->
+      <div class="tier">
+        <h3>单次诊断</h3>
+        <p class="tier-desc">适合想先把一个具体问题弄清楚的你。</p>
+        <div class="tier-price">
+          <span class="tier-price-num">$499</span>
+          <span class="tier-price-unit">/ 一次性</span>
+        </div>
+        <ul class="tier-features">
+          <li><span class="check">✓</span>90 分钟深度会谈</li>
+          <li><span class="check">✓</span>RSU / ISO 税务快照</li>
+          <li><span class="check">✓</span>401K &amp; Backdoor Roth 检查</li>
+          <li><span class="check">✓</span>书面行动清单</li>
+          <li><span class="check">✓</span>会后 2 周邮件答疑</li>
+        </ul>
+        <a href="#book" class="tier-btn">预约单次诊断</a>
+      </div>
+
+      <!-- Tier 2 -->
+      <div class="tier featured">
+        <span class="popular-tag">最受欢迎</span>
+        <h3>年度顾问</h3>
+        <p class="tier-desc">适合股权持续 vest、情况一直在变的你。</p>
+        <div class="tier-price">
+          <span class="tier-price-num">$1,999</span>
+          <span class="tier-price-unit">/ 年</span>
+        </div>
+        <ul class="tier-features">
+          <li><span class="check">✓</span>每季度复盘会谈</li>
+          <li><span class="check">✓</span>vesting / 行权前实时决策支持</li>
+          <li><span class="check">✓</span>年度税务优化方案</li>
+          <li><span class="check">✓</span>529 &amp; 长期资产配置</li>
+          <li><span class="check">✓</span>报税季与你的 CPA 协同</li>
+          <li><span class="check">✓</span>微信随时答疑</li>
+        </ul>
+        <a href="#book" class="tier-btn">预约年度顾问咨询</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BOOK -->
+<section id="book" class="book-section">
+  <div class="book-box">
+    <div>
+      <h2>先聊 15 分钟，<br>看看合不合适。</h2>
+      <p>不推销、不施压。这通电话就是弄清你现在最该解决的一件事——聊完你就知道值不值得往下走。</p>
+      <div class="book-btns">
+        <a href="https://calendly.com/" target="_blank" rel="noopener" class="btn-book-primary">
+          用 Calendly 预约 <span style="font-family:'Newsreader',serif">→</span>
+        </a>
+        <a href="mailto:hello@example.com" class="btn-book-outline">发邮件</a>
+      </div>
+    </div>
+    <div class="wechat-box">
+      <div class="wechat-qr">
+        <span>［微信二维码］<br>WeChat QR</span>
+      </div>
+      <div class="wechat-label">扫码加微信</div>
+      <div class="wechat-sub">备注「财务规划」，我会亲自回</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo"><span>✦</span>北极星财务规划 · Polaris</span>
+    <p class="footer-copy">本网站内容仅供教育参考，不构成个性化的投资、税务或法律建议。正式服务前将签署书面协议。© 2026 版权所有。</p>
+  </div>
+</footer>
+
+</body>
+</html>
