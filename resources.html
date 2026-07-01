@@ -65,7 +65,16 @@
   .ask-answer.visible{display:block}
   .ask-answer-box{border:1px solid rgba(23,33,28,.14);background:#fff;padding:24px 28px}
   .ask-answer-label{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.1em;color:#1B3A5B;margin-bottom:14px}
-  .ask-answer-text{font-size:15px;line-height:1.75;color:#17211C;white-space:pre-wrap}
+  .ask-answer-text{font-size:15px;line-height:1.75;color:#17211C}
+  .ask-answer-text p{margin:0 0 1em}
+  .ask-answer-text p:last-child{margin-bottom:0}
+  .ask-answer-text ul,.ask-answer-text ol{margin:0 0 1em;padding-left:1.5em}
+  .ask-answer-text li{margin-bottom:.35em}
+  .ask-answer-text strong{font-weight:700}
+  .ask-answer-text h1,.ask-answer-text h2,.ask-answer-text h3{font-weight:700;margin:1.2em 0 .5em;line-height:1.3}
+  .ask-answer-text code{font-family:ui-monospace,Menlo,monospace;font-size:.88em;background:rgba(23,33,28,.06);padding:.15em .35em;border-radius:3px}
+  .ask-answer-text pre{background:rgba(23,33,28,.06);padding:14px 16px;border-radius:4px;overflow-x:auto;margin:0 0 1em}
+  .ask-answer-text pre code{background:none;padding:0}
   .ask-disclaimer{margin-top:12px;font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(23,33,28,.4);letter-spacing:.02em}
   .ask-samples{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
   .ask-sample{padding:7px 14px;border:1px solid rgba(23,33,28,.18);background:#fff;color:rgba(23,33,28,.7);font-size:13px;cursor:pointer;transition:border-color .15s,color .15s}
@@ -101,6 +110,7 @@
     .filter-btn{padding:12px 14px;font-size:11.5px}
   }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
 </head>
 <body>
 
@@ -250,9 +260,10 @@ async function submitQuestion() {
 
   btn.disabled = true;
   btn.textContent = '思考中…';
-  answerText.textContent = '';
+  answerText.innerHTML = '<span style="color:rgba(23,33,28,.4);font-family:ui-monospace,Menlo,monospace;font-size:13px">生成中…</span>';
   answerBox.classList.add('visible');
 
+  let raw = '';
   try {
     const res = await fetch('/api/ask', {
       method: 'POST',
@@ -279,12 +290,15 @@ async function submitQuestion() {
         try {
           const { text, error } = JSON.parse(data);
           if (error) throw new Error(error);
-          if (text) answerText.textContent += text;
+          if (text) {
+            raw += text;
+            answerText.innerHTML = marked.parse(raw);
+          }
         } catch {}
       }
     }
   } catch (err) {
-    answerText.textContent = '出错了，请稍后再试。';
+    answerText.innerHTML = '<span style="color:#c0392b">出错了，请稍后再试。</span>';
   } finally {
     btn.disabled = false;
     btn.textContent = '提问 →';
