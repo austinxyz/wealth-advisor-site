@@ -12,63 +12,67 @@
 
 ## 视觉风格
 
-**整体气质**：编辑暖白（方向 1a）—— 温暖、专业、有温度，不冷峻，不科技感
+**整体气质**：精密极简网格（方向 1c）—— 白底、黑色网格边框、等宽字体标签、900 weight 无衬线标题，工程师式干净精密感
 
-- 干净白底，留白充足
-- 衬线大标题（Newsreader）配无衬线正文（Noto Sans SC）
-- 金色点缀，不过度装饰
+- 纯白底 `#FFFFFF`，大量留白
+- 黑色细线 `#17211C` 作为结构线（border）
+- 等宽字体（ui-monospace）用于标签、eyebrow、meta 信息
+- 重磅 `font-weight:900` 无衬线大标题
+- 深蓝 `#1B3A5B` 作为唯一彩色点缀
 
 ---
 
 ## 配色方案
 
-当前使用：**深蓝 #1B3A5B**（理性可信）
-
 | 用途 | 色值 |
 |------|------|
-| 主色（按钮、强调、icon）| `#1B3A5B` |
+| 主色（按钮、强调、标签边框）| `#1B3A5B` |
 | 主色 hover | `#142B45` |
-| 页面底色 | `#FAF8F3`（暖白） |
-| 次级底色（section 背景）| `#F1EDE4` |
-| 浅蓝标签背景 | `#E5EAF1` |
-| 金色 accent（序号、标签、点缀）| `#B4894A` |
+| 页面底色 | `#FFFFFF` |
+| 次级底色（Pain / Pricing section）| `#FAF8F3` |
+| 结构线（border）| `#17211C` |
 | 正文主色 | `#17211C` |
-| 正文次级（描述文字）| `rgba(23,33,28,.66)` |
-
-**备选主色方案**（Claude Design 已出稿，可切换）：
-- 深绿 `#1E4D3A`（更暖、更亲和）
-- 鲜艳翡翠绿 `#12925F`（更活泼）
+| 正文次级 | `rgba(23,33,28,.62)` |
+| Featured tier 文字 | `#EFF2F6` / `#9DB4CE` |
 
 ---
 
 ## 字体方案
 
 ```
-标题大字：Newsreader（Google Fonts，serif，英文数字衬线）
-中文标题：Noto Serif SC（serif，副标题/section 标题）
-正文：Noto Sans SC（sans-serif，400/500/700）
+标题 / 正文：Noto Sans SC（sans-serif，400/500/700/900）
+标签 / eyebrow / meta：ui-monospace, Menlo, monospace（系统等宽）
 ```
 
 ```html
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
 ```
 
 **用法规则**：
-- Hero h1、大数字、价格数字 → `font-family:'Newsreader','Noto Serif SC',serif`
-- Section h2、痛点卡片 h3、定价 h3 → `font-family:'Noto Serif SC',serif`
-- 正文、badge、按钮、nav → `font-family:'Noto Sans SC',system-ui,sans-serif`
+- Hero h1、section h2 → `font-weight:900; letter-spacing:-.025em`
+- Section eyebrow → `font-family:ui-monospace; font-size:12px; letter-spacing:.16em; color:#1B3A5B`
+- Badge / tag → `font-family:ui-monospace; border:1px solid #17211C`
+- 正文 p → `Noto Sans SC, font-size:14.5–16px, line-height:1.68`
 
 ---
 
 ## 页面结构
 
-1. **Nav**：Logo（✦ 北极星财务规划）+ 锚点链接 + 预约按钮
-2. **Hero**：badge 标签 + 大标题"把股权，变成底气。" + 副标题 + 两个 CTA 按钮 + 三项统计数字
-3. **Pain Points**：三张白卡，序号 01/02/03，金色序号，serif 标题
-4. **About**：4:5 竖版照片占位 + 文案 + badge 标签组
-5. **Pricing**：两档（单次诊断 / 年度顾问），年度顾问深蓝底色，金色"最受欢迎"标签
-6. **Book / CTA**：深色 `#17211C` 背景大块，Calendly 按钮 + 微信二维码
-7. **Footer**：免责声明
+### index.html（落地页）
+1. **Nav**：`北极星 / POLARIS`（等宽）+ 锚点链接 + 预约按钮（深蓝实色）
+2. **Hero**：eyebrow `01 —` + 大标题"挣得多，更要留得下。" + 副标题 + 两个 CTA + 三栏统计（带黑色分隔线）
+3. **Pain Points**：`02 —` eyebrow + 大标题 + 三卡网格（1px 黑色 gap 形成格线效果）
+4. **About**：`03 —` + 4:5 照片占位（黑边框）+ 文案 + 等宽 badge
+5. **Pricing**：`04 —` + 两档（PLAN A / PLAN B），网格 1px 黑色分隔，PLAN B 深蓝底色
+6. **Book / CTA**：`05 —` + 深色 `#17211C` 背景块，Calendly 按钮 + 微信二维码
+7. **Footer**：等宽 Logo + 免责声明
+
+### resources.html（资源页）
+- 同款 Nav（资源链接高亮 active 状态）
+- Hero：eyebrow `RESOURCES —` + 大标题"把复杂的事，写清楚。"
+- 筛选栏（sticky）：全部 / 401K / RSU / 税务规划 / 投资基础，active 状态深蓝实色
+- 文章网格：3 列，卡片含 topic tag（等宽边框）、标题、摘要、日期 + 阅读时间
+- JS 客户端筛选，无刷新
 
 ---
 
@@ -77,11 +81,12 @@
 | 占位符 | 说明 |
 |--------|------|
 | `［你的名字］` | About 区真实姓名 |
-| About 照片 | 4:5 竖版专业照 |
+| About 照片 | 替换 `.about-photo` 为 `<img>` |
 | `$499` / `$1,999` | 定价确认或调整 |
 | Calendly 链接 | 替换 `https://calendly.com/` |
 | `hello@example.com` | 真实邮箱 |
-| 微信二维码 | 替换 QR 占位图 |
+| 微信二维码 | 替换 `.wechat-qr` 内容为 `<img>` |
+| 文章链接 | `resources.html` 各卡片 `href="#"` 替换为真实文章页 |
 
 ---
 
@@ -89,9 +94,9 @@
 
 | 文件 | 说明 |
 |------|------|
-| `index.html` | 主网站，单文件，无构建依赖 |
-| `handoff/untitled/project/财务顾问落地页.dc.html` | Claude Design 完整落地页稿 |
-| `handoff/untitled/project/视觉方向.dc.html` | 三个视觉方向对比（1a 暖白 / 1b 深色 / 1c 极简） |
+| `index.html` | 落地页，单文件，无构建依赖 |
+| `resources.html` | 资源/文章列表页，含客户端筛选 JS |
+| `handoff/untitled/project/财务顾问落地页.dc.html` | Claude Design 落地页稿（1c 方向） |
+| `handoff/untitled/project/resources.dc.html` | Claude Design 资源页稿 |
+| `handoff/untitled/project/视觉方向.dc.html` | 三个视觉方向对比 |
 | `handoff/untitled/project/配色对比.dc.html` | 深绿 vs 深蓝 vs 翡翠绿配色对比 |
-| `handoff/untitled/project/advisor-blue.dc.html` | 深蓝配色完整页稿 |
-| `handoff/untitled/project/advisor-bright.dc.html` | 翡翠绿配色完整页稿 |

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>资源与指南 · 北极星财务规划</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#FFFFFF;color:#17211C;font-family:'Noto Sans SC',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+  a{color:inherit;text-decoration:none}
+  @keyframes riseIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ── NAV ── */
+  header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #17211C}
+  .nav-inner{max-width:1140px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .nav-logo{font-family:ui-monospace,Menlo,monospace;font-size:13px;font-weight:500;letter-spacing:.14em;color:#17211C}
+  nav{display:flex;align-items:center;gap:28px}
+  nav a{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;letter-spacing:.06em;color:rgba(23,33,28,.62);transition:color .2s}
+  nav a:hover{color:#17211C}
+  nav a.active{color:#17211C;font-weight:500}
+  .nav-cta{display:inline-flex;align-items:center;padding:10px 18px;background:#1B3A5B;color:#FFFFFF !important;font-size:13px;font-weight:500;transition:background .2s}
+  .nav-cta:hover{background:#142B45}
+
+  /* ── HERO ── */
+  .hero{max-width:1140px;margin:0 auto;padding:0 28px;width:100%}
+  .hero-body{border-bottom:1px solid #17211C;padding:72px 0 44px;animation:riseIn .7s ease both}
+  .hero-eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.16em;color:#1B3A5B;margin-bottom:20px}
+  h1{font-weight:900;font-size:clamp(40px,6vw,72px);line-height:1.02;letter-spacing:-.025em;margin-bottom:20px;max-width:900px}
+  .hero-sub{font-size:clamp(16px,2vw,19px);line-height:1.6;color:rgba(23,33,28,.62);max-width:600px}
+
+  /* ── FILTER + GRID ── */
+  .content{max-width:1140px;margin:0 auto;padding:0 28px 78px;width:100%;flex:1}
+
+  .filter-bar{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid #17211C;position:sticky;top:65px;background:#FFFFFF;z-index:20}
+  .filter-btn{padding:15px 20px;background:#FFFFFF;border:0;border-right:1px solid rgba(23,33,28,.14);font-family:ui-monospace,Menlo,monospace;font-size:12.5px;letter-spacing:.04em;cursor:pointer;color:rgba(23,33,28,.6);transition:background .15s,color .15s}
+  .filter-btn:hover{color:#17211C}
+  .filter-btn.active{background:#1B3A5B;border-right-color:#1B3A5B;color:#FFFFFF;font-weight:500}
+  .filter-count{margin-left:auto;display:flex;align-items:center;padding:0 16px;font-family:ui-monospace,Menlo,monospace;font-size:12px;color:rgba(23,33,28,.5)}
+
+  .article-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}
+  .article-card{display:flex;flex-direction:column;background:#FFFFFF;border:1px solid rgba(23,33,28,.14);padding:28px 26px;min-height:230px;transition:border-color .2s;text-decoration:none;color:inherit}
+  .article-card:hover{border-color:#1B3A5B}
+  .article-tag{align-self:flex-start;font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.04em;color:#1B3A5B;border:1px solid #1B3A5B;padding:4px 9px;margin-bottom:20px}
+  .article-card h3{font-weight:700;font-size:19px;line-height:1.36;letter-spacing:-.01em;margin-bottom:12px}
+  .article-card p{font-size:14px;line-height:1.62;color:rgba(23,33,28,.62);margin-bottom:22px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .article-meta{margin-top:auto;display:flex;align-items:center;gap:10px;font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:rgba(23,33,28,.5)}
+  .article-meta-sep{color:rgba(23,33,28,.28)}
+
+  /* ── FOOTER ── */
+  footer{border-top:1px solid #17211C}
+  .footer-inner{max-width:1140px;margin:0 auto;padding:34px 28px;display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+  .footer-logo{font-family:ui-monospace,Menlo,monospace;font-size:13px;font-weight:500;letter-spacing:.14em}
+  .footer-copy{font-size:12px;line-height:1.6;color:rgba(23,33,28,.45);max-width:620px;text-align:right}
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:860px){
+    nav{display:none}
+    .article-grid{grid-template-columns:1fr 1fr}
+    .footer-copy{text-align:left}
+  }
+  @media(max-width:560px){
+    .hero,.content{padding-left:20px;padding-right:20px}
+    .article-grid{grid-template-columns:1fr}
+    .filter-btn{padding:12px 14px;font-size:11.5px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">北极星 / POLARIS</a>
+    <nav>
+      <a href="index.html#pain">痛点</a>
+      <a href="index.html#about">关于我</a>
+      <a href="index.html#pricing">服务与定价</a>
+      <a href="resources.html" class="active">资源</a>
+      <a href="index.html#book" class="nav-cta">预约咨询</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="hero-eyebrow">RESOURCES — 资源与指南</div>
+    <h1>把复杂的事，写清楚。</h1>
+    <p class="hero-sub">我把最常被问到的股权、退休和税务问题，写成一篇篇能落地执行的指南。挑一个主题，从这里开始。</p>
+  </div>
+</section>
+
+<!-- FILTER + GRID -->
+<section class="content">
+  <div class="filter-bar" id="filter-bar">
+    <button class="filter-btn active" data-cat="全部" onclick="filterArticles('全部')">全部</button>
+    <button class="filter-btn" data-cat="401K" onclick="filterArticles('401K')">401K</button>
+    <button class="filter-btn" data-cat="RSU" onclick="filterArticles('RSU')">RSU</button>
+    <button class="filter-btn" data-cat="税务规划" onclick="filterArticles('税务规划')">税务规划</button>
+    <button class="filter-btn" data-cat="投资基础" onclick="filterArticles('投资基础')">投资基础</button>
+    <span class="filter-count" id="count-label">8 篇</span>
+  </div>
+
+  <div class="article-grid" id="article-grid">
+    <a href="#" class="article-card" data-cat="401K">
+      <span class="article-tag">401K</span>
+      <h3>先吃满 employer match，再谈别的</h3>
+      <p>公司配比是你能拿到的第一笔「无风险回报」。为什么它永远排在所有投资决策的最前面，以及怎么确认自己没漏。</p>
+      <div class="article-meta"><span>2026.05</span><span class="article-meta-sep">·</span><span>6 分钟</span></div>
+    </a>
+    <a href="#" class="article-card" data-cat="401K">
+      <span class="article-tag">401K</span>
+      <h3>Mega Backdoor Roth 到底怎么开</h3>
+      <p>一步步看懂 after-tax 供款和 in-plan Roth 转换，把每年额外几万刀塞进免税增长的账户里。</p>
+      <div class="article-meta"><span>2026.04</span><span class="article-meta-sep">·</span><span>9 分钟</span></div>
+    </a>
+    <a href="#" class="article-card" data-cat="RSU">
+      <span class="article-tag">RSU</span>
+      <h3>RSU vest 当天，你其实有三个选择</h3>
+      <p>全卖、全留、还是部分卖出？用集中持仓风险和你的现金需求，替这个每季度都要做的决定定个框架。</p>
+      <div class="article-meta"><span>2026.05</span><span class="article-meta-sep">·</span><span>7 分钟</span></div>
+    </a>
+    <a href="#" class="article-card" data-cat="RSU">
+      <span class="article-tag">RSU</span>
+      <h3>预扣的 22% 为什么常常不够</h3>
+      <p>RSU 默认补充预扣率往往低于你的实际边际税率，年底补税缺口就是这么来的。教你提前估算并补上。</p>
+      <div class="article-meta"><span>2026.03</span><span class="article-meta-sep">·</span><span>5 分钟</span></div>
+    </a>
+    <a href="#" class="article-card" data-cat="税务规划">
+      <span class="article-tag">税务规划</span>
+      <h3>ISO 行权与 AMT：一张图看懂安全额度</h3>
+      <p>行权多少会触发 AMT？用 spread 和你的收入结构，算出当年不额外交税的最大行权量。</p>
+      <div class="article-meta"><span>2026.04</span><span class="article-meta-sep">·</span><span>8 分钟</span></div>
+    </a>
+    <a href="#" class="article-card" data-cat="税务规划">
+      <span class="article-tag">税务规划</span>
+      <h3>湾区工程师的年度节税日历</h3>
+      <p>从年初的额度规划到年底的 tax-loss harvesting，一份按月排布的清单，让节税动作不再赶在最后一刻。</p>
+      <div class="article-meta"><span>2026.02</span><span class="article-meta-sep">·</span><span>7 分钟</span></div>
+    </a>
+    <a href="#" class="article-card" data-cat="投资基础">
+      <span class="article-tag">投资基础</span>
+      <h3>指数基金 vs 个股：先把地基打好</h3>
+      <p>在研究任何花哨策略之前，先想清楚为什么低成本的宽基指数适合大多数工程师家庭的长期资产。</p>
+      <div class="article-meta"><span>2026.03</span><span class="article-meta-sep">·</span><span>6 分钟</span></div>
+    </a>
+    <a href="#" class="article-card" data-cat="投资基础">
+      <span class="article-tag">投资基础</span>
+      <h3>应急金、现金与短债：钱该放哪</h3>
+      <p>多少现金才够、放 HYSA 还是国债、和你的投资账户如何分层——把安全垫这件事一次说清楚。</p>
+      <div class="article-meta"><span>2026.01</span><span class="article-meta-sep">·</span><span>5 分钟</span></div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">北极星 / POLARIS</span>
+    <p class="footer-copy">本网站内容仅供教育参考，不构成个性化的投资、税务或法律建议。正式服务前将签署书面协议。© 2026 版权所有。</p>
+  </div>
+</footer>
+
+<script>
+function filterArticles(cat) {
+  const cards = document.querySelectorAll('.article-card');
+  const btns = document.querySelectorAll('.filter-btn');
+  btns.forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+  let count = 0;
+  cards.forEach(c => {
+    const show = cat === '全部' || c.dataset.cat === cat;
+    c.style.display = show ? 'flex' : 'none';
+    if (show) count++;
+  });
+  document.getElementById('count-label').textContent = count + ' 篇';
+}
+</script>
+</body>
+</html>
