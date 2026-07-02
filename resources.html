@@ -50,6 +50,13 @@
   .article-meta-sep{color:rgba(23,33,28,.28)}
 
   /* ── ASK AI ── */
+  .demo-section{padding:72px 0;border-top:1px solid #17211C}
+  .demo-inner{max-width:1140px;margin:0 auto;padding:0 28px}
+  .demo-eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.16em;color:#1B3A5B;text-transform:uppercase;margin-bottom:16px}
+  .demo-title{font-size:clamp(28px,4vw,40px);font-weight:900;letter-spacing:-.025em;color:#17211C;margin:0 0 14px}
+  .demo-desc{font-size:15px;line-height:1.7;color:rgba(23,33,28,.62);max-width:600px;margin:0 0 36px}
+  .demo-frame-wrap{position:relative;width:100%;padding-bottom:56.25%;border:1px solid #17211C;background:#0a0a0a;overflow:hidden}
+  .demo-frame{position:absolute;inset:0;width:100%;height:100%;border:0}
   .ask-section{border-top:1px solid #17211C;border-bottom:1px solid #17211C;background:#FAF8F3}
   .ask-inner{max-width:1140px;margin:0 auto;padding:56px 28px}
   .ask-eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.16em;color:#1B3A5B;margin-bottom:16px}
@@ -208,6 +215,18 @@
       <p>多少现金才够、放 HYSA 还是国债、和你的投资账户如何分层——把安全垫这件事一次说清楚。</p>
       <div class="article-meta"><span>2026.01</span><span class="article-meta-sep">·</span><span>5 分钟</span></div>
     </a>
+  </div>
+</section>
+
+<!-- ANIMATION DEMO -->
+<section class="demo-section">
+  <div class="demo-inner">
+    <div class="demo-eyebrow">WORKFLOW DEMO — 工作流演示</div>
+    <h2 class="demo-title">从 Brief 到上线：全程实录</h2>
+    <p class="demo-desc">52 秒看完一个理财顾问网站从无到有的完整过程——Brief → Claude Design → Claude Code → GitHub → Vercel 上线。</p>
+    <div class="demo-frame-wrap">
+      <iframe src="/animation/index.html" class="demo-frame" allowfullscreen title="网站搭建工作流动画"></iframe>
+    </div>
   </div>
 </section>
 
