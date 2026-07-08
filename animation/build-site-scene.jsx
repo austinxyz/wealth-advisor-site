@@ -179,7 +179,7 @@ function LandingMini({ build = 1, dark = false }) {
     // about strip
     React.createElement('div', { style: { margin: '10px 24px 0', background: GREEN_D, color: '#e7efe8', borderRadius: 10,
       padding: '14px 16px', opacity: show(2), transform: `translateY(${(1 - show(2)) * 14}px)` } },
-      React.createElement('div', { style: { fontFamily: SANS, fontSize: 13, lineHeight: 1.6 } }, 'CFP® 持证 · 12 年湾区服务经验 · 只做费用制，不卖产品')
+      React.createElement('div', { style: { fontFamily: SANS, fontSize: 13, lineHeight: 1.6 } }, '独立理财顾问 · 前硅谷工程师 · 只做费用制，不卖产品')
     ),
     // pricing
     React.createElement('div', { style: { display: 'flex', gap: 12, padding: '12px 24px 20px', opacity: show(3),
